@@ -70,3 +70,4 @@ const enableValidation = (settings) => {
 };
 
 enableValidation(validationConfig);
+
