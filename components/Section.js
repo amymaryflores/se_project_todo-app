@@ -9,14 +9,21 @@ class Section {
         }
     }
 
-    renderItems() {
-        if (!this._container) return;
+   renderItems() {
+    if (!this._container) return;
 
-        this._items.forEach((item) => {
-            const renderedItem = this._renderer(item);
+    this._items.forEach((item) => {
+        const renderedItem = this._renderer(item);
+
+        // Ensure the rendered item is a valid DOM node
+        if (renderedItem instanceof Node) {
             this._container.appendChild(renderedItem);
-        });
-    }
+        } else {
+            console.error('Renderer function did not return a valid DOM node:', renderedItem);
+        }
+    });
+}
+
 
     addItem(element) {
         if (!this._container) return;

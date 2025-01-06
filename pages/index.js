@@ -14,19 +14,25 @@ const todoTemplate = document.querySelector("#todo-template");
 const todosList = document.querySelector(".todos__list");
 
 const renderer = (item) => {
+    if (!item || !item.name) {
+        console.error('Invalid item:', item);
+        return null;
+    }
+
     const cardElement = document.createElement('div');
     cardElement.className = 'card';
-    cardElement.textContent = item.name; 
+    cardElement.textContent = item.name;
+    return cardElement; // This must be a valid DOM node
 };
 
 const section = new Section({
-    items: [{ name: 'Card 1' }, { name: 'Card 2' }], 
+    items: [{ name: 'Card 1' }, { name: 'Card 2' }],
     renderer: renderer,
-    containerSelector: '#card-container' 
+    containerSelector: '#card-container'
 });
 
-
 section.renderItems();
+
 
 addTodoForm.addEventListener("submit", (evt) => {
     evt.preventDefault();
