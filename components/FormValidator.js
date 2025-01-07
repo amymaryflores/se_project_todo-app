@@ -45,16 +45,14 @@ class formValidator {
   }
 
   _checkInputValidity(inputElement) {
+    const errorMessage = inputElement.validationMessage;
     const errorElement = this._formElement.querySelector(
       `#${inputElement.id}-error`
     );
-
-    if (!inputElement.validity.valid) {
-      inputElement.classList.add(this._inputErrorClass);
-      errorElement.textContent = inputElement.validationMessage;
-      errorElement.classList.add(this._errorClass);
+    if (inputElement.validity.valid) {
+      errorElement.textContent = ""; // Clear error
     } else {
-      this._hideInputError(inputElement);
+      errorElement.textContent = errorMessage; // Show error message
     }
   }
   _setEventListeners() {
@@ -77,6 +75,7 @@ class formValidator {
   enableValidation() {
     this._formElement.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      this._resetValidation();
     });
     this._setEventListeners();
   }
