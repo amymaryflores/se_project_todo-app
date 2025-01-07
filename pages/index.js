@@ -57,17 +57,19 @@ const addTodoPopup = new PopupWithForm({
 
 addTodoPopup.setEventListeners();
 
-function handleCheck(completed) {
-  todoCounter.updateCompleted(completed);
-  console.log(completed);
+function handleCheck(isCompleted) {
+  console.log(`Todo marked as ${isCompleted ? "completed" : "not completed"}`);
+  todoCounter.updateCompleted(isCompleted); // Update counters if needed
 }
 
-function handleDelete(completed) {
-  todoCounter.updateTotal(false);
-  if (completed) {
+function handleDelete(isCompleted) {
+  console.log("Todo deleted");
+  if (isCompleted) {
     todoCounter.updateCompleted(false);
   }
+  todoCounter.updateTotal(false); // Reduce total count
 }
+
 
 const newFormValidator = new FormValidator(validationConfig, addTodoForm);
 newFormValidator.enableValidation();
