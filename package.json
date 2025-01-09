@@ -1,0 +1,19 @@
+{
+  "name": "se_project_todo-app",
+  "version": "1.0.0",
+  "description": "Give a brief description of the project here. Feel free to give it a different name.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amymaryflores/se_project_todo-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amymaryflores/se_project_todo-app/issues"
+  },
+  "homepage": "https://github.com/amymaryflores/se_project_todo-app#readme"
+}
