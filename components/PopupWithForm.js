@@ -19,21 +19,17 @@ class PopupWithForm extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners();
-
+    super.setEventListeners(); // Call the parent class method
+    
     // Handle form submission
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       const inputValues = this.getInputValues();
-
       this._handleFormSubmit(inputValues); // Pass input values to form submit handler
       this.close(); // Close the modal after submission
     });
   }
-
-  close() {
-     super.close(); // Calls close on parent class (Popup) that hides the modal
-   }
+    
 
   resetForm() {
     this._popupForm.reset(); // Clear form inputs when closing the modal

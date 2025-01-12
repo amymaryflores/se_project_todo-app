@@ -7,6 +7,7 @@ class TodoCounter {
       this._total = todos.length; // number of total todos
       this._updateText();
     }
+    
   
     // Call this when a checkbox is clicked, and when a completed
     // to-do is deleted.
@@ -23,8 +24,12 @@ class TodoCounter {
         this._completed = 0;
       }
       this._updateText();
+      todoCounter.updateCompleted(true); // if todo was checked
+      todoCounter.updateCompleted(false); // if unchecked
+      
     };
   
+    
     // Call this when a to-do is deleted, or when a to-do is
     // created via the form.
     updateTotal = (increment) => {
@@ -38,6 +43,7 @@ class TodoCounter {
       }
       this._updateText();
     };
+
   
     // Call the method to update the text content
     _updateText() {

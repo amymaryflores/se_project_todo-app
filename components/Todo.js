@@ -30,6 +30,13 @@ class Todo {
     });
   }
 
+  updateTodoCount() {
+    // Suppose you have a method to get all todos and filter completed ones
+    const totalTodos = getAllTodos().length;
+    const completedTodos = getAllTodos().filter(todo => todo.completed).length;
+    document.querySelector('#todo-count').textContent = `Showing ${completedTodos} out of ${totalTodos} completed`;
+  }
+
   generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoLabel = this._todoElement.querySelector(".todo__label");

@@ -51,7 +51,7 @@ const addTodoPopup = new PopupWithForm({
     todoCounter.updateTotal(true);
 
     addTodoPopup.close();
-    addTodoPopup.resetForm();
+    newFormValidator.resetValidation()
   },
 });
 
