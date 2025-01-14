@@ -16,12 +16,12 @@ const todoTemplateSelector = "#todo-template";
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const renderer = (item) => {
-  const todo = new Todo(item, todoTemplateSelector);
-  return todo.getView();
-};
+    const todo = new Todo(item, todoTemplateSelector, handleCheck, handleDelete);
+    return todo.getView();
+  };
 
 const generateTodo = (data) => {
-  const todo = new Todo(data, "#todo-template", handleCheck, handleDelete);
+  const todo = new Todo(data, todoTemplateSelector, handleCheck, handleDelete);
   return todo.getView();
 };
 
@@ -46,7 +46,7 @@ const addTodoPopup = new PopupWithForm({
     const values = { name, date, id };
 
     const newTodoElement = generateTodo(values);
-    todosList.append(newTodoElement);
+  
 
     todoCounter.updateTotal(true);
 
@@ -82,3 +82,5 @@ addTodoPopup.resetForm = () => {
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
+
+
