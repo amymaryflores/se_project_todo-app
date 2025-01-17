@@ -15,6 +15,11 @@ const todosList = document.querySelector(".todos__list");
 const todoTemplateSelector = "#todo-template";
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
+const renderer = (item) => {
+  const todo = new Todo(item, todoTemplateSelector, handleCheck, handleDelete);
+  return todo.getView();
+};
+
 const generateTodo = (data) => {
   const todo = new Todo(data, todoTemplateSelector, handleCheck, handleDelete);
   return todo.getView();
