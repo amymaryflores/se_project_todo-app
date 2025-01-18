@@ -10,7 +10,7 @@ class Section {
   
     // Add a single item to the container
     addItem(item) {
-      this._container.appendChild(item);
+      if (!this._container) return;
   
       // Ensure the rendered item is a valid DOM node before appending
       const renderedItem = this._renderer(item);
@@ -24,7 +24,7 @@ class Section {
     // Render all items by calling addItem for each
     renderItems() {
       this._items.forEach((item) => {
-        this.addItem(this._renderer(item));  // Reuse addItem to append each item
+        this.addItem(item);  // Reuse addItem to append each item
       });
     }
   }
